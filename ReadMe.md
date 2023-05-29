@@ -12,12 +12,13 @@ As a field tool, Vizanti is designed to operate just as well without internet ac
 
  ```bash
 pip install Flask
-sudo apt install ros-noetic-rosbridge-suite
+sudo apt install ros-humble-rosbridge-suite
 
-cd ~/catkin_ws/src
-git clone https://github.com/MoffKalast/vizanti.git
+cd ~/ros2_ws/src
+git clone -b ros2 https://github.com/MoffKalast/vizanti.git
+git clone https://github.com/b1n-ch1kn/vizanti_interfaces
 cd ..
-catkin_make
+colcon build
 
  ```
  
