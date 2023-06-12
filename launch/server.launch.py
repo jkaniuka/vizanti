@@ -48,6 +48,7 @@ def generate_launch_description():
 
     service_handler_node = launch_ros.actions.Node(
         package='vizanti',
+        namespace='vizanti',
         executable='vizanti_service_handler_node',
         output='screen'
     )
