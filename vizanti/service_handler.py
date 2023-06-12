@@ -19,22 +19,22 @@ class ServiceHandler(Node):
         self.proc = None
         self.packages = self.get_packages()
 
-        self.get_nodes_service = self.create_service(Trigger, 'vizanti/get_dynamic_reconfigure_nodes', self.get_dynamic_reconfigure_nodes)
-        self.get_node_parameters_service = self.create_service(GetNodeParameters, 'vizanti/get_node_parameters', self.get_node_parameters)
+        self.get_nodes_service = self.create_service(Trigger, 'get_dynamic_reconfigure_nodes', self.get_dynamic_reconfigure_nodes)
+        self.get_node_parameters_service = self.create_service(GetNodeParameters, 'get_node_parameters', self.get_node_parameters)
 
-        self.load_map_service = self.create_service(LoadMap, 'vizanti/load_map', self.load_map)
-        self.save_map_service = self.create_service(SaveMap, 'vizanti/save_map', self.save_map)
+        self.load_map_service = self.create_service(LoadMap, 'load_map', self.load_map)
+        self.save_map_service = self.create_service(SaveMap, 'save_map', self.save_map)
 
-        self.record_setup_service = self.create_service(RecordRosbag, 'vizanti/bag/setup', self.recording_setup)
-        self.record_status_service = self.create_service(Trigger, 'vizanti/bag/status', self.recording_status)
+        self.record_setup_service = self.create_service(RecordRosbag, 'bag/setup', self.recording_setup)
+        self.record_status_service = self.create_service(Trigger, 'bag/status', self.recording_status)
 
-        self_kill_service = self.create_service(ManageNode, 'vizanti/node/kill', self.node_kill)
-        self_start_service = self.create_service(ManageNode, 'vizanti/node/start', self.node_start)
-        self_info_service = self.create_service(ManageNode, 'vizanti/node/info', self.node_info)
-        self_info_service = self.create_service(Trigger, 'vizanti/roswtf', self.roswtf)
+        self_kill_service = self.create_service(ManageNode, 'node/kill', self.node_kill)
+        self_start_service = self.create_service(ManageNode, 'node/start', self.node_start)
+        self_info_service = self.create_service(ManageNode, 'node/info', self.node_info)
+        self_info_service = self.create_service(Trigger, 'roswtf', self.roswtf)
 
-        self.list_packages_service = self.create_service(ListPackages, 'vizanti/list_packages', self.list_packages_callback)
-        self.list_executables_service = self.create_service(ListExecutables, 'vizanti/list_executables', self.list_executables_callback)
+        self.list_packages_service = self.create_service(ListPackages, 'list_packages', self.list_packages_callback)
+        self.list_executables_service = self.create_service(ListExecutables, 'list_executables', self.list_executables_callback)
 
         self.get_logger().info("Service handler ready.")
 
